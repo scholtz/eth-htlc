@@ -64,7 +64,7 @@ app.post("/executeBridging", async (req: any, res: any) => {
     const receipt = await createTx.wait();
     console.log("receipt", receipt);
     console.log("secretHashHex", secretHashHex);
-    console.log(await escrow.escrows(secretHashHex));
+    //console.log(await escrow.escrows(secretHashHex));
     console.log(
       "B1. Create escrow contract with secret hash and safety deposot - createTx",
       createTx

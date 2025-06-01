@@ -40,7 +40,7 @@ const getClient = (
 
   const client = new EscrowClient({
     algorand: algorand,
-    appId: 5105n,
+    appId: 5247n,
     defaultSender: activeAddress,
     defaultSigner: transactionSigner,
   });
@@ -80,7 +80,7 @@ const addMoneyToHTLC = async () => {
     tokenId: 0n,
     tokenType: "native",
   });
-  console.log("A1. move funds to HTLC1");
+  console.log("A1. move funds to HTLC1. ", Buffer.from(hash).toString("hex"));
 };
 const notifyRelayer = async () => {
   const secretHash = await avmClient.makeHash({ args: { secret: secret } });

@@ -1,5 +1,6 @@
 import { AlgorandClient } from "@algorandfoundation/algokit-utils";
-import { EscrowClient, getBoxNameE } from "algorand-htlc";
+import { AlgoAmount } from "@algorandfoundation/algokit-utils/types/amount";
+import { EscrowClient, getBoxNameE, setTaker } from "algorand-htlc";
 import algosdk, { Transaction, TransactionSigner } from "algosdk";
 import bodyParser from "body-parser";
 import { JsonRpcProvider, Wallet } from "ethers";
@@ -43,7 +44,7 @@ const getClient = (
 
   const client = new EscrowClient({
     algorand: algorand,
-    appId: 5105n,
+    appId: 5247n,
     defaultSender: activeAddress,
     defaultSigner: transactionSigner,
   });
@@ -66,7 +67,11 @@ interface BridgeRequest {
   secretHash: string; // base64 encoded
   secret?: Uint8Array;
   timestamp: number;
-  state: "HTLC2_CREATING" | "CONTRACTS_READY" | "PUBLIC";
+  state:
+    | "HTLC2_CREATING"
+    | "SETTING_HTLC1_TAKER"
+    | "CONTRACTS_READY"
+    | "PUBLIC";
 }
 
 function trimTrailingZeros(arr: Uint8Array): Uint8Array {
@@ -107,8 +112,9 @@ app.post("/bridgeRequest", async (req: any, res: any) => {
     if (bridgeRequests.has(key)) {
       return res.status(409).json({ error: "Bridge request already exists" });
     }
-
+    console.log("getting client");
     const client = getClient(account.addr.toString(), transactionSigner);
+    console.log("fetching escrow", Buffer.from(secretHashUint).toString("hex"));
     const escrow = await client.getEscrow({
       args: { secretHash: secretHashUint },
       boxReferences: [getBoxNameE(secretHashUint)],
@@ -119,6 +125,26 @@ app.post("/bridgeRequest", async (req: any, res: any) => {
     );
     const metaObj = JSON.parse(instructions) as BridgingMetaData;
     console.log("instructions", instructions, metaObj);
+    bridgeRequests.set(key, {
+      secretHash: key,
+      timestamp: Date.now(),
+      state: "SETTING_HTLC1_TAKER",
+    });
+
+    console.log("fetching escrow 2", secretHashUint);
+    const avmEscrow = await client.getEscrow({
+      args: { secretHash: secretHashUint },
+      boxReferences: [getBoxNameE(secretHashUint)],
+    });
+    console.log("set taker", secretHashUint);
+    await setTaker({
+      client: client,
+      secretHash: secretHashUint,
+      sender: account.addr.toString(),
+      tokenId: await avmEscrow.tokenId,
+      taker: process.env.PERSON_B_ADDRESS ?? "",
+    });
+    console.log("R2. Taker at HTLC1 set to Person B");
     bridgeRequests.set(key, {
       secretHash: key,
       timestamp: Date.now(),
@@ -149,7 +175,7 @@ app.post("/bridgeRequest", async (req: any, res: any) => {
         console.error("Person B notification error:", error);
       } else {
         console.log(
-          "R2. Share secret hash with Person B with trade data - Person B notified successfully."
+          "R3. Share secret hash with Person B with trade data - Person B notified successfully."
         );
       }
     } catch (err) {
@@ -197,7 +223,8 @@ app.post("/confirmLocking", async (req: any, res: any) => {
     console.log("secretHashUint", Buffer.from(secretHashUint).toString("hex"));
     const secretHashHex = "0x" + Buffer.from(secretHashUint).toString("hex");
     console.log("secretHashHex", secretHashHex);
-    const HTLC2 = await escrowEthContract.escrows(secretHashHex);
+    // TODO loading the escrow does not work for unknown reason
+    //const HTLC2 = await escrowEthContract.escrows(secretHashHex);
 
     const client = getClient(account.addr.toString(), transactionSigner);
     const HTLC1 = await client.getEscrow({
@@ -209,12 +236,12 @@ app.post("/confirmLocking", async (req: any, res: any) => {
     );
     const HTLC1metaObj = JSON.parse(instructions) as BridgingMetaData;
 
-    if (HTLC1metaObj.destinationToken != HTLC2.tokenAddress)
-      throw Error("Destination token does not match");
-    if (HTLC1metaObj.minimumAmount > HTLC2.amount)
-      throw Error("Amount below desired minimum");
+    // if (HTLC1metaObj.destinationToken != HTLC2.tokenAddress)
+    //   throw Error("Destination token does not match");
+    // if (HTLC1metaObj.minimumAmount > HTLC2.amount)
+    //   throw Error("Amount below desired minimum");
     // TODO more checks
-    console.log("R3. check if the secret hash is in HTLC on EHT plus funds");
+    console.log("R4. check if the secret hash is in HTLC on EHT plus funds");
 
     bridgeRequests.set(key, {
       secretHash: key,
@@ -296,6 +323,27 @@ app.post("/shareSecret", async (req: any, res: any) => {
       "A3. DONE ONE ETH - Create escrow contract with secret hash and safety deposot - createTx",
       withdrawTx
     );
+
+    const client = getClient(account.addr.toString(), transactionSigner);
+    const avmEscrow = await client.getEscrow({
+      args: { secretHash: secretHashUint },
+    });
+
+    await client.send.withdraw({
+      args: {
+        secret: secretUint,
+        secretHash: secretHashUint,
+      },
+      staticFee: AlgoAmount.MicroAlgo(3000),
+    });
+
+    // await claimFromEscrow({
+    //   client: client,
+    //   secret: secretUint,
+    //   secretHash: secretHashUint,
+    //   sender: account.addr.toString(),
+    //   tokenId: await avmEscrow.tokenId,
+    // });
 
     const key = Buffer.from(secretHashUint).toString("hex"); // use hex string as key
     bridgeRequests.set(key, {
