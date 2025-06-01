@@ -63,10 +63,9 @@ app.post("/executeBridging", async (req: any, res: any) => {
     console.log("secretHashHex", secretHashHex);
     //console.log(await escrow.escrows(secretHashHex));
     console.log(
-      "B1. Create escrow contract with secret hash and safety deposot - createTx",
-      createTx
+      "B1. Create escrow contract with secret hash and safety deposot - createTx"
     );
-    console.log("secretHashUint", Buffer.from(secretHashUint).toString("hex"));
+    //console.log("secretHashUint", Buffer.from(secretHashUint).toString("hex"));
     try {
       const response = await fetch("http://localhost:3000/confirmLocking", {
         method: "POST",

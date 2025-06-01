@@ -23,7 +23,7 @@ const transactionSigner: TransactionSigner = async (
   txnGroup: Transaction[],
   indexesToSign: number[]
 ): Promise<Uint8Array[]> => {
-  console.log("signing", txnGroup);
+  //console.log("signing", txnGroup);
   return txnGroup.map((t) => t.signTxn(account.sk));
 };
 var algorand = AlgorandClient.fromConfig({
@@ -124,14 +124,14 @@ app.post("/bridgeRequest", async (req: any, res: any) => {
     if (bridgeRequests.has(key)) {
       return res.status(409).json({ error: "Bridge request already exists" });
     }
-    console.log("getting client");
+    //console.log("getting client");
     const client = getClient(account.addr.toString(), transactionSigner);
-    console.log("fetching escrow", Buffer.from(secretHashUint).toString("hex"));
+    //console.log("fetching escrow", Buffer.from(secretHashUint).toString("hex"));
     const escrow = await client.getEscrow({
       args: { secretHash: secretHashUint },
       boxReferences: [getBoxNameE(secretHashUint)],
     });
-    console.log("R1. check the funds - escrow found", escrow);
+    console.log("R1. check the funds - escrow found");
     const instructions = Buffer.from(trimTrailingZeros(escrow.memo)).toString(
       "utf8"
     );
@@ -143,12 +143,12 @@ app.post("/bridgeRequest", async (req: any, res: any) => {
       state: "SETTING_HTLC1_TAKER",
     });
 
-    console.log("fetching escrow 2", secretHashUint);
+    //console.log("fetching escrow 2", secretHashUint);
     const avmEscrow = await client.getEscrow({
       args: { secretHash: secretHashUint },
       boxReferences: [getBoxNameE(secretHashUint)],
     });
-    console.log("set taker", secretHashUint);
+    //console.log("set taker", secretHashUint);
     await setTaker({
       client: client,
       secretHash: secretHashUint,
@@ -229,9 +229,9 @@ app.post("/confirmLocking", async (req: any, res: any) => {
       process.env.HTLC_EVM_CONTRACT ?? "",
       signer
     );
-    console.log("secretHashUint", Buffer.from(secretHashUint).toString("hex"));
-    const secretHashHex = "0x" + Buffer.from(secretHashUint).toString("hex");
-    console.log("secretHashHex", secretHashHex);
+    //console.log("secretHashUint", Buffer.from(secretHashUint).toString("hex"));
+    //const secretHashHex = "0x" + Buffer.from(secretHashUint).toString("hex");
+    //console.log("secretHashHex", secretHashHex);
     // TODO loading the escrow does not work for unknown reason
     //const HTLC2 = await escrowEthContract.escrows(secretHashHex);
 
@@ -329,8 +329,7 @@ app.post("/shareSecret", async (req: any, res: any) => {
       secretUint
     );
     console.log(
-      "A3. DONE ONE ETH - Create escrow contract with secret hash and safety deposot - createTx",
-      withdrawTx
+      "A3. DONE ONE ETH - Create escrow contract with secret hash and safety deposot - createTx"
     );
 
     const client = getClient(account.addr.toString(), transactionSigner);

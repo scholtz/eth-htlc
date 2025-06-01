@@ -14,7 +14,7 @@ const transactionSigner: TransactionSigner = async (
   txnGroup: Transaction[],
   indexesToSign: number[]
 ): Promise<Uint8Array[]> => {
-  console.log("signing", txnGroup);
+  //console.log("signing", txnGroup);
   return txnGroup.map((t) => t.signTxn(account.sk));
 };
 var algorand = AlgorandClient.fromConfig({
@@ -149,6 +149,8 @@ const checkRequest = async () => {
             console.error("Relay notification error:", error);
           } else {
             console.log("A3. secret shared");
+            await setTimeout(1000);
+            continue;
           }
         } catch (err) {
           console.error("Failed to notify relayer:", err);
