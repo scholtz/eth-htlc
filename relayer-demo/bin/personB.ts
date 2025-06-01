@@ -35,14 +35,11 @@ app.post("/executeBridging", async (req: any, res: any) => {
     if (!dataObj) {
       return res.status(400).json({ error: "no data provided" });
     }
-    const provider = new JsonRpcProvider("http://127.0.0.1:8545");
-    const signer = new Wallet(
-      "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
-      provider
-    );
+    const provider = new JsonRpcProvider(process.env.EVM_RPC ?? "");
+    const signer = new Wallet(process.env.PERSON_B_EVM_KEY ?? "", provider);
 
     const escrow = EscrowContract__factory.connect(
-      "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      process.env.HTLC_EVM_CONTRACT ?? "",
       signer
     );
 

@@ -1,0 +1,116 @@
+Running the person A script
+Person A address:  3XU3AQARZOKYNYVRCF55KU2NUZJ7L6IKS46YBYKXNP6EZ6G2QWULFUVB44
+Transaction IDs (16aa+FE4J9hWBpRMsiivhoWpX1hNNwMeqEGSgZzKv7g=) [
+  'MJWDKSIEXWPOOVMUP4GSXT74ZNE2G5NTJDMV4CO3ECVCXSBYUEQA',
+  'DDQYACKZQFWEQGTH2CEPGAABXDFZ4AKRBIDZKIS56IY42B6LQDCA',
+  'OMJVSZL7AZN5AWI7JYYQFHEMBXYEQAHX3OTOYPEA2KRFWPJZBHOA'
+]
+signing [
+  Transaction {
+    type: 'pay',
+    sender: Address { publicKey: [Uint8Array] },
+    note: Uint8Array(0) [],
+    lease: undefined,
+    rekeyTo: undefined,
+    group: Uint8Array(32) [
+      215, 166, 154, 248,  81,  56,  39, 216,
+       86,   6, 148,  76, 178,  40, 175, 134,
+      133, 169,  95,  88,  77,  55,   3,  30,
+      168,  65, 146, 129, 156, 202, 191, 184
+    ],
+    firstValid: 52142147n,
+    lastValid: 52143147n,
+    genesisID: 'testnet-v1.0',
+    genesisHash: Uint8Array(32) [
+       72,  99, 181,  24, 164, 179, 200,  78,
+      200,  16, 242,  45,  79,  16, 129, 203,
+       15, 113, 240,  89, 167, 172,  32, 222,
+      198,  47, 127, 112, 229,   9,  58,  34
+    ],
+    payment: {
+      receiver: [Address],
+      amount: 1000000n,
+      closeRemainderTo: undefined
+    },
+    fee: 50000n
+  },
+  Transaction {
+    type: 'pay',
+    sender: Address { publicKey: [Uint8Array] },
+    note: Uint8Array(0) [],
+    lease: undefined,
+    rekeyTo: undefined,
+    group: Uint8Array(32) [
+      215, 166, 154, 248,  81,  56,  39, 216,
+       86,   6, 148,  76, 178,  40, 175, 134,
+      133, 169,  95,  88,  77,  55,   3,  30,
+      168,  65, 146, 129, 156, 202, 191, 184
+    ],
+    firstValid: 52142147n,
+    lastValid: 52143147n,
+    genesisID: 'testnet-v1.0',
+    genesisHash: Uint8Array(32) [
+       72,  99, 181,  24, 164, 179, 200,  78,
+      200,  16, 242,  45,  79,  16, 129, 203,
+       15, 113, 240,  89, 167, 172,  32, 222,
+      198,  47, 127, 112, 229,   9,  58,  34
+    ],
+    payment: {
+      receiver: [Address],
+      amount: 185300n,
+      closeRemainderTo: undefined
+    },
+    fee: 50000n
+  },
+  Transaction {
+    type: 'appl',
+    sender: Address { publicKey: [Uint8Array] },
+    note: Uint8Array(0) [],
+    lease: undefined,
+    rekeyTo: undefined,
+    group: Uint8Array(32) [
+      215, 166, 154, 248,  81,  56,  39, 216,
+       86,   6, 148,  76, 178,  40, 175, 134,
+      133, 169,  95,  88,  77,  55,   3,  30,
+      168,  65, 146, 129, 156, 202, 191, 184
+    ],
+    firstValid: 52142147n,
+    lastValid: 52142157n,
+    genesisID: 'testnet-v1.0',
+    genesisHash: Uint8Array(32) [
+       72,  99, 181,  24, 164, 179, 200,  78,
+      200,  16, 242,  45,  79,  16, 129, 203,
+       15, 113, 240,  89, 167, 172,  32, 222,
+      198,  47, 127, 112, 229,   9,  58,  34
+    ],
+    applicationCall: {
+      appIndex: 740405863n,
+      onComplete: 0,
+      numLocalInts: 0,
+      numLocalByteSlices: 0,
+      numGlobalInts: 0,
+      numGlobalByteSlices: 0,
+      extraPages: 0,
+      approvalProgram: Uint8Array(0) [],
+      clearProgram: Uint8Array(0) [],
+      appArgs: [Array],
+      accounts: [],
+      foreignApps: [],
+      foreignAssets: [],
+      boxes: [Array]
+    },
+    fee: 50000n
+  }
+]
+App 740405863 called with create({"type":"pay","sender":{"publicKey":"3emwQBHLlYbisRF71VNNplP1+QqXPYDhV2v8TPjahag="},"note":"","group":"16aa+FE4J9hWBpRMsiivhoWpX1hNNwMeqEGSgZzKv7g=","firstValid":52142147,"lastValid":52143147,"genesisID":"testnet-v1.0","genesisHash":"SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=","payment":{"receiver":{"publicKey":"p0kGCIbxWdor26IycZiSnRrX9lNlJacwgjjgdATENhA="},"amount":1000000},"fee":50000},{"type":"pay","sender":{"publicKey":"3emwQBHLlYbisRF71VNNplP1+QqXPYDhV2v8TPjahag="},"note":"","group":"16aa+FE4J9hWBpRMsiivhoWpX1hNNwMeqEGSgZzKv7g=","firstValid":52142147,"lastValid":52143147,"genesisID":"testnet-v1.0","genesisHash":"SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=","payment":{"receiver":{"publicKey":"p0kGCIbxWdor26IycZiSnRrX9lNlJacwgjjgdATENhA="},"amount":185300},"fee":50000},86400,[49,235,64,231,29,127,57,35,161,85,181,116,223,3,68,196,61,146,232,42,212,99,148,106,168,76,57,160,100,198,121,148],X5F42AJHPEPMHEOJ4QFC5EJEAP4K3G6K4IXRKFHQN7FJWR22NGACPRFHMY,X5F42AJHPEPMHEOJ4QFC5EJEAP4K3G6K4IXRKFHQN7FJWR22NGACPRFHMY,"eyJkZXN0aW5hdGlvbiI6ImJhc2UiLCJkZXN0aW5hdGlvbkFjY291bnQiOiIweGNkM0I3NjZDQ0RkNkFFNzIxMTQxRjQ1MkM1NTBDYTYzNTk2NGNlNzEiLCJkZXN0aW5hdGlvblRva2VuIjoiMHgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIiwibWluaW11bUFtb3VudCI6MTAwMH0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==") by 3XU3AQARZOKYNYVRCF55KU2NUZJ7L6IKS46YBYKXNP6EZ6G2QWULFUVB44 via transaction OMJVSZL7AZN5AWI7JYYQFHEMBXYEQAHX3OTOYPEA2KRFWPJZBHOA
+A1. move funds to HTLC1.  31eb40e71d7f3923a155b574df0344c43d92e82ad463946aa84c39a064c67994
+Relayer notified successfully.
+A2. Share secret hash with relayer
+We can continue with making the secret public
+sending to relay the secret {
+  secretB64: '9k1J++tyZmtpCdOxwFD86pEj5/RKRdz6fDlDm9/IzntVQ0Mr5MGpUpYhrXaS1DRI1Eg=',
+  secretHashB64: 'MetA5x1/OSOhVbV03wNExD2S6CrUY5RqqEw5oGTGeZQ='
+}
+A3. secret shared
+A3 not ready. Checking my bridge request in progress...
+Release of funds has been processed

@@ -1,0 +1,165 @@
+Running the relayer
+API server listening at http://localhost:3000
+/bridgeRequest
+getting client
+fetching escrow 31eb40e71d7f3923a155b574df0344c43d92e82ad463946aa84c39a064c67994
+R1. check the funds - escrow found {
+  createdTime: 1748759559n,
+  rescueTime: 1748845959n,
+  tokenId: 0n,
+  amount: 1000000n,
+  mbrAmount: 185300n,
+  creator: '3XU3AQARZOKYNYVRCF55KU2NUZJ7L6IKS46YBYKXNP6EZ6G2QWULFUVB44',
+  destinationSetter: 'X5F42AJHPEPMHEOJ4QFC5EJEAP4K3G6K4IXRKFHQN7FJWR22NGACPRFHMY',
+  taker: 'X5F42AJHPEPMHEOJ4QFC5EJEAP4K3G6K4IXRKFHQN7FJWR22NGACPRFHMY',
+  memo: [
+    123,  34, 100, 101, 115, 116, 105, 110,  97, 116, 105, 111,
+    110,  34,  58,  34,  98,  97, 115, 101,  34,  44,  34, 100,
+    101, 115, 116, 105, 110,  97, 116, 105, 111, 110,  65,  99,
+     99, 111, 117, 110, 116,  34,  58,  34,  48, 120,  99, 100,
+     51,  66,  55,  54,  54,  67,  67,  68, 100,  54,  65,  69,
+     55,  50,  49,  49,  52,  49,  70,  52,  53,  50,  67,  53,
+     53,  48,  67,  97,  54,  51,  53,  57,  54,  52,  99, 101,
+     55,  49,  34,  44,  34, 100, 101, 115, 116, 105, 110,  97,
+    116, 105, 111, 110,
+    ... 156 more items
+  ],
+  secretHash: [
+     49, 235,  64, 231,  29, 127,  57,  35,
+    161,  85, 181, 116, 223,   3,  68, 196,
+     61, 146, 232,  42, 212,  99, 148, 106,
+    168,  76,  57, 160, 100, 198, 121, 148
+  ]
+}
+instructions {"destination":"base","destinationAccount":"0xcd3B766CCDd6AE721141F452C550Ca635964ce71","destinationToken":"0x0000000000000000000000000000000000000000","minimumAmount":1000} {
+  destination: 'base',
+  destinationAccount: '0xcd3B766CCDd6AE721141F452C550Ca635964ce71',
+  destinationToken: '0x0000000000000000000000000000000000000000',
+  minimumAmount: 1000
+}
+fetching escrow 2 Uint8Array(32) [
+   49, 235,  64, 231,  29, 127,  57,  35,
+  161,  85, 181, 116, 223,   3,  68, 196,
+   61, 146, 232,  42, 212,  99, 148, 106,
+  168,  76,  57, 160, 100, 198, 121, 148
+]
+set taker Uint8Array(32) [
+   49, 235,  64, 231,  29, 127,  57,  35,
+  161,  85, 181, 116, 223,   3,  68, 196,
+   61, 146, 232,  42, 212,  99, 148, 106,
+  168,  76,  57, 160, 100, 198, 121, 148
+]
+signing [
+  Transaction {
+    type: 'appl',
+    sender: Address { publicKey: [Uint8Array] },
+    note: Uint8Array(0) [],
+    lease: undefined,
+    rekeyTo: undefined,
+    group: undefined,
+    firstValid: 52142149n,
+    lastValid: 52142159n,
+    genesisID: 'testnet-v1.0',
+    genesisHash: Uint8Array(32) [
+       72,  99, 181,  24, 164, 179, 200,  78,
+      200,  16, 242,  45,  79,  16, 129, 203,
+       15, 113, 240,  89, 167, 172,  32, 222,
+      198,  47, 127, 112, 229,   9,  58,  34
+    ],
+    applicationCall: {
+      appIndex: 740405863n,
+      onComplete: 0,
+      numLocalInts: 0,
+      numLocalByteSlices: 0,
+      numGlobalInts: 0,
+      numGlobalByteSlices: 0,
+      extraPages: 0,
+      approvalProgram: Uint8Array(0) [],
+      clearProgram: Uint8Array(0) [],
+      appArgs: [Array],
+      accounts: [],
+      foreignApps: [],
+      foreignAssets: [],
+      boxes: [Array]
+    },
+    fee: 2000n
+  }
+]
+App 740405863 called with setTaker("MetA5x1/OSOhVbV03wNExD2S6CrUY5RqqEw5oGTGeZQ=",DUZCVMPRFC6QURFMMSR6SMMO3GYBGUQ34EK4NIZ3KY5SZD65AGQLJDXAWM) by X5F42AJHPEPMHEOJ4QFC5EJEAP4K3G6K4IXRKFHQN7FJWR22NGACPRFHMY via transaction YJJOZSDGOFHSCIKUY2DI3YRRDHFKC5DIOQ4YV2BYVYEOOQRQMHEA
+R2. Taker at HTLC1 set to Person B
+sending to person B {
+  amount: 1000000n,
+  secretHash: 'MetA5x1/OSOhVbV03wNExD2S6CrUY5RqqEw5oGTGeZQ=',
+  destination: 'base',
+  destinationAccount: '0xcd3B766CCDd6AE721141F452C550Ca635964ce71',
+  minimumAmount: 1000,
+  destinationToken: '0x0000000000000000000000000000000000000000'
+}
+/confirmLocking
+secretHashUint 31eb40e71d7f3923a155b574df0344c43d92e82ad463946aa84c39a064c67994
+secretHashHex 0x31eb40e71d7f3923a155b574df0344c43d92e82ad463946aa84c39a064c67994
+R4. check if the secret hash is in HTLC on EHT plus funds
+state of 31eb40e71d7f3923a155b574df0344c43d92e82ad463946aa84c39a064c67994 changed to CONTRACTS_READY
+R3. Share secret hash with Person B with trade data - Person B notified successfully.
+/checkState
+/shareSecret
+A3. DONE ONE ETH - Create escrow contract with secret hash and safety deposot - createTx ContractTransactionResponse {
+  provider: JsonRpcProvider {},
+  blockNumber: null,
+  blockHash: null,
+  index: undefined,
+  hash: '0x53d51d44c7a4f5dbe43c16660e45531554470bb2027d9a7a630ead0d8f781bcf',
+  type: 2,
+  to: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0',
+  from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  nonce: 4,
+  gasLimit: 22713n,
+  gasPrice: undefined,
+  maxPriorityFeePerGas: 1000000000n,
+  maxFeePerGas: 2034010314n,
+  maxFeePerBlobGas: null,
+  data: '0x4a2e35ba31eb40e71d7f3923a155b574df0344c43d92e82ad463946aa84c39a064c6799400000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000032f64d49fbeb72666b6909d3b1c050fcea9123e7f44a45dcfa7c39439bdfc8ce7b5543432be4c1a9529621ad7692d43448d4480000000000000000000000000000',
+  value: 0n,
+  chainId: 31337n,
+  signature: Signature { r: "0xdaf308452c6e0d8715b6f0a1931bb476e8652552288ee3eddb18758644e358fa", s: "0x2b39dd6c591a1d7296d778b15b699edb57c8a901dccfd1317d45793a3b3c38cf", yParity: 1, networkV: null },
+  accessList: [],
+  blobVersionedHashes: null
+}
+signing [
+  Transaction {
+    type: 'appl',
+    sender: Address { publicKey: [Uint8Array] },
+    note: Uint8Array(0) [],
+    lease: undefined,
+    rekeyTo: undefined,
+    group: undefined,
+    firstValid: 52142152n,
+    lastValid: 52142162n,
+    genesisID: 'testnet-v1.0',
+    genesisHash: Uint8Array(32) [
+       72,  99, 181,  24, 164, 179, 200,  78,
+      200,  16, 242,  45,  79,  16, 129, 203,
+       15, 113, 240,  89, 167, 172,  32, 222,
+      198,  47, 127, 112, 229,   9,  58,  34
+    ],
+    applicationCall: {
+      appIndex: 740405863n,
+      onComplete: 0,
+      numLocalInts: 0,
+      numLocalByteSlices: 0,
+      numGlobalInts: 0,
+      numGlobalByteSlices: 0,
+      extraPages: 0,
+      approvalProgram: Uint8Array(0) [],
+      clearProgram: Uint8Array(0) [],
+      appArgs: [Array],
+      accounts: [Array],
+      foreignApps: [],
+      foreignAssets: [],
+      boxes: [Array]
+    },
+    fee: 3000n
+  }
+]
+App 740405863 called with withdraw("MetA5x1/OSOhVbV03wNExD2S6CrUY5RqqEw5oGTGeZQ=","9k1J++tyZmtpCdOxwFD86pEj5/RKRdz6fDlDm9/IzntVQ0Mr5MGpUpYhrXaS1DRI1Eg=") by X5F42AJHPEPMHEOJ4QFC5EJEAP4K3G6K4IXRKFHQN7FJWR22NGACPRFHMY via transaction UCNOLEMK37YODIMXOX72JGB2WJK7F6FTMTRASAZMHQ5M2SGVBHNQ
+/checkState

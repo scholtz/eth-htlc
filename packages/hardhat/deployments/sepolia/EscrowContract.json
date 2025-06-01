@@ -1,0 +1,407 @@
+{
+  "address": "0xC7FC6Cc47133c9cb9e0E0b53B6d8b9E53969E146",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "secretHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "creator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "EscrowCancelled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "secretHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "creator",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "taker",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "rescueTime",
+          "type": "uint64"
+        }
+      ],
+      "name": "EscrowCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "secretHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "taker",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "EscrowWithdrawn",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "admin",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "secretHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "cancel",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint64",
+          "name": "rescueDelay",
+          "type": "uint64"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "secretHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "taker",
+          "type": "address"
+        }
+      ],
+      "name": "create",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "escrows",
+      "outputs": [
+        {
+          "internalType": "uint64",
+          "name": "createdTime",
+          "type": "uint64"
+        },
+        {
+          "internalType": "uint64",
+          "name": "rescueTime",
+          "type": "uint64"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "creator",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "taker",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "secretHash",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "totalDeposits",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "secretHash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "secret",
+          "type": "bytes"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x1ada613ded1f6151b9e0eb7be638b1e7e4d198afe897e490882fb97cfc38b097",
+  "receipt": {
+    "to": null,
+    "from": "0xcc60D12B1A6D29f0551E7370E9fe53A31E039DcC",
+    "contractAddress": "0xC7FC6Cc47133c9cb9e0E0b53B6d8b9E53969E146",
+    "transactionIndex": 148,
+    "gasUsed": "793123",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xe826f583ae0194390cdc872f775a59dd2ad84b1d8184bde65a7155f719160bd4",
+    "transactionHash": "0x1ada613ded1f6151b9e0eb7be638b1e7e4d198afe897e490882fb97cfc38b097",
+    "logs": [],
+    "blockNumber": 8451559,
+    "cumulativeGasUsed": "17189100",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "a066af14b40d3394a605c6a9e010fe29",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"secretHash\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"EscrowCancelled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"secretHash\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"taker\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"tokenAddress\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"rescueTime\",\"type\":\"uint64\"}],\"name\":\"EscrowCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"secretHash\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"taker\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"EscrowWithdrawn\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"secretHash\",\"type\":\"bytes32\"}],\"name\":\"cancel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint64\",\"name\":\"rescueDelay\",\"type\":\"uint64\"},{\"internalType\":\"bytes32\",\"name\":\"secretHash\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"taker\",\"type\":\"address\"}],\"name\":\"create\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"escrows\",\"outputs\":[{\"internalType\":\"uint64\",\"name\":\"createdTime\",\"type\":\"uint64\"},{\"internalType\":\"uint64\",\"name\":\"rescueTime\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"tokenAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"taker\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"secretHash\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"totalDeposits\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"secretHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"secret\",\"type\":\"bytes\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/EscrowContract.sol\":\"EscrowContract\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/EscrowContract.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.20;\\r\\n\\r\\ninterface IERC20 {\\r\\n    function transfer(address to, uint amount) external returns (bool);\\r\\n    function transferFrom(address from, address to, uint amount) external returns (bool);\\r\\n}\\r\\n\\r\\ncontract EscrowContract {\\r\\n    struct Escrow {\\r\\n        uint64 createdTime;\\r\\n        uint64 rescueTime;\\r\\n        address tokenAddress; // address(0) for ETH\\r\\n        uint256 amount;\\r\\n        address creator;\\r\\n        address taker;\\r\\n        bytes32 secretHash;\\r\\n    }\\r\\n\\r\\n    address public admin;\\r\\n    mapping(bytes32 => Escrow) public escrows;\\r\\n    mapping(address => uint256) public totalDeposits;\\r\\n\\r\\n    // EVENTS\\r\\n    event EscrowCreated(\\r\\n        bytes32 indexed secretHash,\\r\\n        address indexed creator,\\r\\n        address indexed taker,\\r\\n        address tokenAddress,\\r\\n        uint256 amount,\\r\\n        uint64 rescueTime\\r\\n    );\\r\\n\\r\\n    event EscrowWithdrawn(\\r\\n        bytes32 indexed secretHash,\\r\\n        address indexed taker,\\r\\n        uint256 amount\\r\\n    );\\r\\n\\r\\n    event EscrowCancelled(\\r\\n        bytes32 indexed secretHash,\\r\\n        address indexed creator,\\r\\n        uint256 amount\\r\\n    );\\r\\n\\r\\n    constructor() {\\r\\n        admin = msg.sender;\\r\\n    }\\r\\n\\r\\n    function create(\\r\\n        address tokenAddress,\\r\\n        uint256 amount,\\r\\n        uint64 rescueDelay,\\r\\n        bytes32 secretHash,\\r\\n        address taker\\r\\n    ) external payable {\\r\\n        require(secretHash != bytes32(0), \\\"Secret hash cannot be empty\\\");\\r\\n        require(escrows[secretHash].creator == address(0), \\\"Escrow already exists\\\");\\r\\n\\r\\n        uint256 depositAmount = amount;\\r\\n        if (tokenAddress == address(0)) {\\r\\n            require(msg.value == depositAmount, \\\"Incorrect ETH sent\\\");\\r\\n        } else {\\r\\n            require(IERC20(tokenAddress).transferFrom(msg.sender, address(this), amount), \\\"Token transfer failed\\\");\\r\\n        }\\r\\n\\r\\n        escrows[secretHash] = Escrow({\\r\\n            createdTime: uint64(block.timestamp),\\r\\n            rescueTime: uint64(block.timestamp + rescueDelay),\\r\\n            tokenAddress: tokenAddress,\\r\\n            amount: amount,\\r\\n            creator: msg.sender,\\r\\n            taker: taker,\\r\\n            secretHash: secretHash\\r\\n        });\\r\\n\\r\\n        totalDeposits[tokenAddress] += depositAmount;\\r\\n\\r\\n        emit EscrowCreated(secretHash, msg.sender, taker, tokenAddress, amount, uint64(block.timestamp + rescueDelay));\\r\\n    }\\r\\n\\r\\n    function withdraw(bytes32 secretHash, bytes calldata secret) external {\\r\\n        Escrow memory escrow = escrows[secretHash];\\r\\n        require(escrow.creator != address(0), \\\"Escrow does not exist\\\");\\r\\n        require(block.timestamp < escrow.rescueTime, \\\"Rescue time passed\\\");\\r\\n        require(keccak256(abi.encodePacked(secret)) == secretHash, \\\"Incorrect secret\\\");\\r\\n\\r\\n        address recipient = escrow.taker == address(0) ? msg.sender : escrow.taker;\\r\\n        _send(recipient, escrow.tokenAddress, escrow.amount);\\r\\n        delete escrows[secretHash];\\r\\n\\r\\n        emit EscrowWithdrawn(secretHash, recipient, escrow.amount);\\r\\n    }\\r\\n\\r\\n    function cancel(bytes32 secretHash) external {\\r\\n        Escrow memory escrow = escrows[secretHash];\\r\\n        require(escrow.creator != address(0), \\\"Escrow does not exist\\\");\\r\\n        require(block.timestamp >= escrow.rescueTime, \\\"Rescue time not passed\\\");\\r\\n\\r\\n        delete escrows[secretHash];\\r\\n        _send(escrow.creator, escrow.tokenAddress, escrow.amount);\\r\\n\\r\\n        emit EscrowCancelled(secretHash, escrow.creator, escrow.amount);\\r\\n    }\\r\\n\\r\\n    function _send(address to, address token, uint256 amount) internal {\\r\\n        totalDeposits[token] -= amount;\\r\\n        if (token == address(0)) {\\r\\n            (bool sent, ) = to.call{value: amount}(\\\"\\\");\\r\\n            require(sent, \\\"ETH transfer failed\\\");\\r\\n        } else {\\r\\n            require(IERC20(token).transfer(to, amount), \\\"Token transfer failed\\\");\\r\\n        }\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x920a7bbfd38b78e022a59b48eed9c6a58557673ddf9640ce82e64e15e3a65090\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50600080546001600160a01b03191633179055610cf8806100326000396000f3fe6080604052600436106100555760003560e01c80632d83549c1461005a578063353378591461011e5780634a2e35ba14610133578063c4d252f514610153578063e940325614610173578063f851a440146101ae575b600080fd5b34801561006657600080fd5b506100cb610075366004610b17565b60016020819052600091825260409091208054918101546002820154600383015460048401546005909401546001600160401b0380871696600160401b900416946001600160a01b039485169492831692169087565b604080516001600160401b0398891681529790961660208801526001600160a01b03948516958701959095526060860192909252821660808501521660a083015260c082015260e0015b60405180910390f35b61013161012c366004610b4c565b6101e6565b005b34801561013f57600080fd5b5061013161014e366004610bb1565b61054f565b34801561015f57600080fd5b5061013161016e366004610b17565b6107a6565b34801561017f57600080fd5b506101a061018e366004610c2c565b60026020526000908152604090205481565b604051908152602001610115565b3480156101ba57600080fd5b506000546101ce906001600160a01b031681565b6040516001600160a01b039091168152602001610115565b816102385760405162461bcd60e51b815260206004820152601b60248201527f53656372657420686173682063616e6e6f7420626520656d707479000000000060448201526064015b60405180910390fd5b6000828152600160205260409020600301546001600160a01b0316156102985760405162461bcd60e51b8152602060048201526015602482015274457363726f7720616c72656164792065786973747360581b604482015260640161022f565b836001600160a01b0386166102f0578034146102eb5760405162461bcd60e51b8152602060048201526012602482015271125b98dbdc9c9958dd08115512081cd95b9d60721b604482015260640161022f565b6103ab565b6040516323b872dd60e01b8152336004820152306024820152604481018690526001600160a01b038716906323b872dd906064016020604051808303816000875af1158015610343573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103679190610c4e565b6103ab5760405162461bcd60e51b8152602060048201526015602482015274151bdad95b881d1c985b9cd9995c8819985a5b1959605a1b604482015260640161022f565b6040518060e00160405280426001600160401b03168152602001856001600160401b0316426103da9190610c86565b6001600160401b0390811682526001600160a01b03808a16602080850182905260408086018c90523360608088019190915289851660808089019190915260a09788018c905260008c815260018086528482208b5181548d8901518c16600160401b026001600160801b031990911691909b16179990991789558a85015190890180549189166001600160a01b0319928316179055928a01516002808a0191909155918a0151600389018054918916918516919091179055978901516004880180549190971692169190911790945560c0909601516005909401939093558352905290812080548392906104cf908490610c86565b90915550506001600160a01b03821633847fad8640a3e560457ff62cc9e10577c93fb8d3236a82775ac426a8f66cf759ce7c89896105166001600160401b038b1642610c86565b604080516001600160a01b03909416845260208401929092526001600160401b03169082015260600160405180910390a4505050505050565b600083815260016020818152604092839020835160e08101855281546001600160401b038082168352600160401b9091041692810192909252918201546001600160a01b0390811693820193909352600282015460608201526003820154831660808201819052600483015490931660a082015260059091015460c0820152906106135760405162461bcd60e51b8152602060048201526015602482015274115cd8dc9bddc8191bd95cc81b9bdd08195e1a5cdd605a1b604482015260640161022f565b80602001516001600160401b031642106106645760405162461bcd60e51b815260206004820152601260248201527114995cd8dd59481d1a5b59481c185cdcd95960721b604482015260640161022f565b838383604051602001610678929190610c9f565b60405160208183030381529060405280519060200120146106ce5760405162461bcd60e51b815260206004820152601060248201526f125b98dbdc9c9958dd081cd958dc995d60821b604482015260640161022f565b60a08101516000906001600160a01b0316156106ee578160a001516106f0565b335b90506107058183604001518460600151610981565b600085815260016020818152604080842080546001600160801b031916815592830180546001600160a01b031990811690915560028401859055600384018054821690556004840180549091169055600590920192909255606084015190519081526001600160a01b0383169187917fada9b39efdfbda90abae579a1389dd62601dc40dad39f12f175a1666dbfa835a910160405180910390a35050505050565b600081815260016020818152604092839020835160e08101855281546001600160401b038082168352600160401b9091041692810192909252918201546001600160a01b0390811693820193909352600282015460608201526003820154831660808201819052600483015490931660a082015260059091015460c08201529061086a5760405162461bcd60e51b8152602060048201526015602482015274115cd8dc9bddc8191bd95cc81b9bdd08195e1a5cdd605a1b604482015260640161022f565b80602001516001600160401b03164210156108c05760405162461bcd60e51b815260206004820152601660248201527514995cd8dd59481d1a5b59481b9bdd081c185cdcd95960521b604482015260640161022f565b600082815260016020819052604080832080546001600160801b031916815591820180546001600160a01b0319908116909155600283018490556003830180548216905560048301805490911690556005909101919091556080820151908201516060830151610931929190610981565b80608001516001600160a01b0316827fcd3d52b315a39e30f68b05b9bbd077363df8a2182402ed6e7f75c3a03ef929c5836060015160405161097591815260200190565b60405180910390a35050565b6001600160a01b038216600090815260026020526040812080548392906109a9908490610caf565b90915550506001600160a01b038216610a5b576000836001600160a01b03168260405160006040518083038185875af1925050503d8060008114610a09576040519150601f19603f3d011682016040523d82523d6000602084013e610a0e565b606091505b5050905080610a555760405162461bcd60e51b8152602060048201526013602482015272115512081d1c985b9cd9995c8819985a5b1959606a1b604482015260640161022f565b50505050565b60405163a9059cbb60e01b81526001600160a01b0384811660048301526024820183905283169063a9059cbb906044016020604051808303816000875af1158015610aaa573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610ace9190610c4e565b610b125760405162461bcd60e51b8152602060048201526015602482015274151bdad95b881d1c985b9cd9995c8819985a5b1959605a1b604482015260640161022f565b505050565b600060208284031215610b2957600080fd5b5035919050565b80356001600160a01b0381168114610b4757600080fd5b919050565b600080600080600060a08688031215610b6457600080fd5b610b6d86610b30565b94506020860135935060408601356001600160401b0381168114610b9057600080fd5b925060608601359150610ba560808701610b30565b90509295509295909350565b600080600060408486031215610bc657600080fd5b8335925060208401356001600160401b0380821115610be457600080fd5b818601915086601f830112610bf857600080fd5b813581811115610c0757600080fd5b876020828501011115610c1957600080fd5b6020830194508093505050509250925092565b600060208284031215610c3e57600080fd5b610c4782610b30565b9392505050565b600060208284031215610c6057600080fd5b81518015158114610c4757600080fd5b634e487b7160e01b600052601160045260246000fd5b80820180821115610c9957610c99610c70565b92915050565b8183823760009101908152919050565b81810381811115610c9957610c99610c7056fea264697066735822122027bed239e6a99e2a17e6271fa8836c2ddc62a25e7945e0a821e8dcb2885db77064736f6c63430008140033",
+  "deployedBytecode": "0x6080604052600436106100555760003560e01c80632d83549c1461005a578063353378591461011e5780634a2e35ba14610133578063c4d252f514610153578063e940325614610173578063f851a440146101ae575b600080fd5b34801561006657600080fd5b506100cb610075366004610b17565b60016020819052600091825260409091208054918101546002820154600383015460048401546005909401546001600160401b0380871696600160401b900416946001600160a01b039485169492831692169087565b604080516001600160401b0398891681529790961660208801526001600160a01b03948516958701959095526060860192909252821660808501521660a083015260c082015260e0015b60405180910390f35b61013161012c366004610b4c565b6101e6565b005b34801561013f57600080fd5b5061013161014e366004610bb1565b61054f565b34801561015f57600080fd5b5061013161016e366004610b17565b6107a6565b34801561017f57600080fd5b506101a061018e366004610c2c565b60026020526000908152604090205481565b604051908152602001610115565b3480156101ba57600080fd5b506000546101ce906001600160a01b031681565b6040516001600160a01b039091168152602001610115565b816102385760405162461bcd60e51b815260206004820152601b60248201527f53656372657420686173682063616e6e6f7420626520656d707479000000000060448201526064015b60405180910390fd5b6000828152600160205260409020600301546001600160a01b0316156102985760405162461bcd60e51b8152602060048201526015602482015274457363726f7720616c72656164792065786973747360581b604482015260640161022f565b836001600160a01b0386166102f0578034146102eb5760405162461bcd60e51b8152602060048201526012602482015271125b98dbdc9c9958dd08115512081cd95b9d60721b604482015260640161022f565b6103ab565b6040516323b872dd60e01b8152336004820152306024820152604481018690526001600160a01b038716906323b872dd906064016020604051808303816000875af1158015610343573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103679190610c4e565b6103ab5760405162461bcd60e51b8152602060048201526015602482015274151bdad95b881d1c985b9cd9995c8819985a5b1959605a1b604482015260640161022f565b6040518060e00160405280426001600160401b03168152602001856001600160401b0316426103da9190610c86565b6001600160401b0390811682526001600160a01b03808a16602080850182905260408086018c90523360608088019190915289851660808089019190915260a09788018c905260008c815260018086528482208b5181548d8901518c16600160401b026001600160801b031990911691909b16179990991789558a85015190890180549189166001600160a01b0319928316179055928a01516002808a0191909155918a0151600389018054918916918516919091179055978901516004880180549190971692169190911790945560c0909601516005909401939093558352905290812080548392906104cf908490610c86565b90915550506001600160a01b03821633847fad8640a3e560457ff62cc9e10577c93fb8d3236a82775ac426a8f66cf759ce7c89896105166001600160401b038b1642610c86565b604080516001600160a01b03909416845260208401929092526001600160401b03169082015260600160405180910390a4505050505050565b600083815260016020818152604092839020835160e08101855281546001600160401b038082168352600160401b9091041692810192909252918201546001600160a01b0390811693820193909352600282015460608201526003820154831660808201819052600483015490931660a082015260059091015460c0820152906106135760405162461bcd60e51b8152602060048201526015602482015274115cd8dc9bddc8191bd95cc81b9bdd08195e1a5cdd605a1b604482015260640161022f565b80602001516001600160401b031642106106645760405162461bcd60e51b815260206004820152601260248201527114995cd8dd59481d1a5b59481c185cdcd95960721b604482015260640161022f565b838383604051602001610678929190610c9f565b60405160208183030381529060405280519060200120146106ce5760405162461bcd60e51b815260206004820152601060248201526f125b98dbdc9c9958dd081cd958dc995d60821b604482015260640161022f565b60a08101516000906001600160a01b0316156106ee578160a001516106f0565b335b90506107058183604001518460600151610981565b600085815260016020818152604080842080546001600160801b031916815592830180546001600160a01b031990811690915560028401859055600384018054821690556004840180549091169055600590920192909255606084015190519081526001600160a01b0383169187917fada9b39efdfbda90abae579a1389dd62601dc40dad39f12f175a1666dbfa835a910160405180910390a35050505050565b600081815260016020818152604092839020835160e08101855281546001600160401b038082168352600160401b9091041692810192909252918201546001600160a01b0390811693820193909352600282015460608201526003820154831660808201819052600483015490931660a082015260059091015460c08201529061086a5760405162461bcd60e51b8152602060048201526015602482015274115cd8dc9bddc8191bd95cc81b9bdd08195e1a5cdd605a1b604482015260640161022f565b80602001516001600160401b03164210156108c05760405162461bcd60e51b815260206004820152601660248201527514995cd8dd59481d1a5b59481b9bdd081c185cdcd95960521b604482015260640161022f565b600082815260016020819052604080832080546001600160801b031916815591820180546001600160a01b0319908116909155600283018490556003830180548216905560048301805490911690556005909101919091556080820151908201516060830151610931929190610981565b80608001516001600160a01b0316827fcd3d52b315a39e30f68b05b9bbd077363df8a2182402ed6e7f75c3a03ef929c5836060015160405161097591815260200190565b60405180910390a35050565b6001600160a01b038216600090815260026020526040812080548392906109a9908490610caf565b90915550506001600160a01b038216610a5b576000836001600160a01b03168260405160006040518083038185875af1925050503d8060008114610a09576040519150601f19603f3d011682016040523d82523d6000602084013e610a0e565b606091505b5050905080610a555760405162461bcd60e51b8152602060048201526013602482015272115512081d1c985b9cd9995c8819985a5b1959606a1b604482015260640161022f565b50505050565b60405163a9059cbb60e01b81526001600160a01b0384811660048301526024820183905283169063a9059cbb906044016020604051808303816000875af1158015610aaa573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610ace9190610c4e565b610b125760405162461bcd60e51b8152602060048201526015602482015274151bdad95b881d1c985b9cd9995c8819985a5b1959605a1b604482015260640161022f565b505050565b600060208284031215610b2957600080fd5b5035919050565b80356001600160a01b0381168114610b4757600080fd5b919050565b600080600080600060a08688031215610b6457600080fd5b610b6d86610b30565b94506020860135935060408601356001600160401b0381168114610b9057600080fd5b925060608601359150610ba560808701610b30565b90509295509295909350565b600080600060408486031215610bc657600080fd5b8335925060208401356001600160401b0380821115610be457600080fd5b818601915086601f830112610bf857600080fd5b813581811115610c0757600080fd5b876020828501011115610c1957600080fd5b6020830194508093505050509250925092565b600060208284031215610c3e57600080fd5b610c4782610b30565b9392505050565b600060208284031215610c6057600080fd5b81518015158114610c4757600080fd5b634e487b7160e01b600052601160045260246000fd5b80820180821115610c9957610c99610c70565b92915050565b8183823760009101908152919050565b81810381811115610c9957610c99610c7056fea264697066735822122027bed239e6a99e2a17e6271fa8836c2ddc62a25e7945e0a821e8dcb2885db77064736f6c63430008140033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 39,
+        "contract": "contracts/EscrowContract.sol:EscrowContract",
+        "label": "admin",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 44,
+        "contract": "contracts/EscrowContract.sol:EscrowContract",
+        "label": "escrows",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_bytes32,t_struct(Escrow)37_storage)"
+      },
+      {
+        "astId": 48,
+        "contract": "contracts/EscrowContract.sol:EscrowContract",
+        "label": "totalDeposits",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_address,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_bytes32,t_struct(Escrow)37_storage)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => struct EscrowContract.Escrow)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Escrow)37_storage"
+      },
+      "t_struct(Escrow)37_storage": {
+        "encoding": "inplace",
+        "label": "struct EscrowContract.Escrow",
+        "members": [
+          {
+            "astId": 24,
+            "contract": "contracts/EscrowContract.sol:EscrowContract",
+            "label": "createdTime",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 26,
+            "contract": "contracts/EscrowContract.sol:EscrowContract",
+            "label": "rescueTime",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_uint64"
+          },
+          {
+            "astId": 28,
+            "contract": "contracts/EscrowContract.sol:EscrowContract",
+            "label": "tokenAddress",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 30,
+            "contract": "contracts/EscrowContract.sol:EscrowContract",
+            "label": "amount",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 32,
+            "contract": "contracts/EscrowContract.sol:EscrowContract",
+            "label": "creator",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_address"
+          },
+          {
+            "astId": 34,
+            "contract": "contracts/EscrowContract.sol:EscrowContract",
+            "label": "taker",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_address"
+          },
+          {
+            "astId": 36,
+            "contract": "contracts/EscrowContract.sol:EscrowContract",
+            "label": "secretHash",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_bytes32"
+          }
+        ],
+        "numberOfBytes": "192"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint64": {
+        "encoding": "inplace",
+        "label": "uint64",
+        "numberOfBytes": "8"
+      }
+    }
+  }
+}
