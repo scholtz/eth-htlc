@@ -21,6 +21,28 @@ contract EscrowContract {
     mapping(bytes32 => Escrow) public escrows;
     mapping(address => uint256) public totalDeposits;
 
+    // EVENTS
+    event EscrowCreated(
+        bytes32 indexed secretHash,
+        address indexed creator,
+        address indexed taker,
+        address tokenAddress,
+        uint256 amount,
+        uint64 rescueTime
+    );
+
+    event EscrowWithdrawn(
+        bytes32 indexed secretHash,
+        address indexed taker,
+        uint256 amount
+    );
+
+    event EscrowCancelled(
+        bytes32 indexed secretHash,
+        address indexed creator,
+        uint256 amount
+    );
+
     constructor() {
         admin = msg.sender;
     }
@@ -53,6 +75,8 @@ contract EscrowContract {
         });
 
         totalDeposits[tokenAddress] += depositAmount;
+
+        emit EscrowCreated(secretHash, msg.sender, taker, tokenAddress, amount, uint64(block.timestamp + rescueDelay));
     }
 
     function withdraw(bytes32 secretHash, bytes calldata secret) external {
@@ -61,8 +85,11 @@ contract EscrowContract {
         require(block.timestamp < escrow.rescueTime, "Rescue time passed");
         require(keccak256(abi.encodePacked(secret)) == secretHash, "Incorrect secret");
 
-        _send(escrow.taker == address(0) ? msg.sender : escrow.taker, escrow.tokenAddress, escrow.amount);
+        address recipient = escrow.taker == address(0) ? msg.sender : escrow.taker;
+        _send(recipient, escrow.tokenAddress, escrow.amount);
         delete escrows[secretHash];
+
+        emit EscrowWithdrawn(secretHash, recipient, escrow.amount);
     }
 
     function cancel(bytes32 secretHash) external {
@@ -72,6 +99,8 @@ contract EscrowContract {
 
         delete escrows[secretHash];
         _send(escrow.creator, escrow.tokenAddress, escrow.amount);
+
+        emit EscrowCancelled(secretHash, escrow.creator, escrow.amount);
     }
 
     function _send(address to, address token, uint256 amount) internal {
