@@ -14,7 +14,7 @@
     "@inquirer/password": "^4.0.2",
     "@openzeppelin/contracts": "~5.0.2",
     "@typechain/ethers-v6": "~0.5.1",
-    "algorand-htlc": "^0.9.2",
+    "algorand-htlc": "^1.0.1",
     "algosdk": "^3.3.1",
     "body-parser": "^2.2.0",
     "buffer": "^6.0.3",

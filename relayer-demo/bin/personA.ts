@@ -1,6 +1,6 @@
 // person A creates escrow and notifies the relayer with the hash, then periodically tries to fetch the info if he can reveal the secret, and if true he calls the method
 import { AlgorandClient } from "@algorandfoundation/algokit-utils";
-import { createEscrow, EscrowClient } from "algorand-htlc";
+import { createEscrow, EscrowClient, getAppIdByChain } from "algorand-htlc";
 import algosdk, { Transaction, TransactionSigner } from "algosdk";
 import crypto from "crypto";
 import { setTimeout } from "timers/promises";
@@ -37,10 +37,16 @@ const getClient = (
 ) => {
   if (!activeAddress) throw Error("Active address not found");
   if (!transactionSigner) throw Error("transactionSigner is missing");
-
+  const appId = getAppIdByChain(
+    (process.env.AVM_CHAIN_GENESIS as
+      | "testnet-v1.0"
+      | "voimain-v1.0"
+      | "mainnet-v1.0"
+      | "dockernet-v1") ?? "testnet-v1.0"
+  );
   const client = new EscrowClient({
     algorand: algorand,
-    appId: 5247n,
+    appId: BigInt(appId),
     defaultSender: activeAddress,
     defaultSigner: transactionSigner,
   });

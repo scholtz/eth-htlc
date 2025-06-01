@@ -2365,12 +2365,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"algorand-htlc@npm:^0.9.2":
-  version: 0.9.2
-  resolution: "algorand-htlc@npm:0.9.2"
+"algorand-htlc@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "algorand-htlc@npm:1.0.1"
   dependencies:
     "@algorandfoundation/algorand-typescript": ~1.0.0-beta.70 <1.0.0
-  checksum: ec78396cbeb587a7e50439fcafca83b374730ba1a37d0eeda9cbd05d42f1d19f000bf526a0cc7828a2d3095f5cea835950353955449a3303bef45801c2a305e3
+  checksum: 33876827968ffeb664f5b9382cdb826b3fe3e8e72c4d28cb56f3030154ae90b830b79e203a8649746c01fc72fda31ef763d32246b013c979baceb74ee47b4789
   languageName: node
   linkType: hard
 
@@ -6413,7 +6413,7 @@ __metadata:
     "@types/qrcode": ~1.5.5
     "@typescript-eslint/eslint-plugin": ~8.27.0
     "@typescript-eslint/parser": ~8.27.0
-    algorand-htlc: ^0.9.2
+    algorand-htlc: ^1.0.1
     algosdk: ^3.3.1
     body-parser: ^2.2.0
     buffer: ^6.0.3

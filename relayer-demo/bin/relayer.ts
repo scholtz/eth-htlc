@@ -1,6 +1,11 @@
 import { AlgorandClient } from "@algorandfoundation/algokit-utils";
 import { AlgoAmount } from "@algorandfoundation/algokit-utils/types/amount";
-import { EscrowClient, getBoxNameE, setTaker } from "algorand-htlc";
+import {
+  EscrowClient,
+  getAppIdByChain,
+  getBoxNameE,
+  setTaker,
+} from "algorand-htlc";
 import algosdk, { Transaction, TransactionSigner } from "algosdk";
 import bodyParser from "body-parser";
 import { JsonRpcProvider, Wallet } from "ethers";
@@ -42,9 +47,16 @@ const getClient = (
   if (!activeAddress) throw Error("Active address not found");
   if (!transactionSigner) throw Error("transactionSigner is missing");
 
+  const appId = getAppIdByChain(
+    (process.env.AVM_CHAIN_GENESIS as
+      | "testnet-v1.0"
+      | "voimain-v1.0"
+      | "mainnet-v1.0"
+      | "dockernet-v1") ?? "testnet-v1.0"
+  );
   const client = new EscrowClient({
     algorand: algorand,
-    appId: 5247n,
+    appId: appId,
     defaultSender: activeAddress,
     defaultSigner: transactionSigner,
   });
