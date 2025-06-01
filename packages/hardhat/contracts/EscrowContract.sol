@@ -55,7 +55,7 @@ contract EscrowContract {
         totalDeposits[tokenAddress] += depositAmount;
     }
 
-    function withdraw(bytes32 secretHash, string calldata secret) external {
+    function withdraw(bytes32 secretHash, bytes calldata secret) external {
         Escrow memory escrow = escrows[secretHash];
         require(escrow.creator != address(0), "Escrow does not exist");
         require(block.timestamp < escrow.rescueTime, "Rescue time passed");
